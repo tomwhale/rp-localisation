@@ -145,26 +145,26 @@ public class GridMap extends LineMap {
 						* (float) Math.sin(Math.toRadians(pose.getHeading())));
 		Line rl = null;
 
-		System.out.println("target: " + l.x1 + " " + l.y1 + ", " + l.x2 + " "
-				+ l.y2);
+//		System.out.println("target: " + l.x1 + " " + l.y1 + ", " + l.x2 + " "
+//				+ l.y2);
 
 		Line[] lines = getLines();
 		for (int i = 0; i < lines.length; i++) {
 
-			System.out.println(i + " checking against: " + lines[i].x1 + " "
-					+ lines[i].y1 + ", " + lines[i].x2 + " " + lines[i].y2);
+//			System.out.println(i + " checking against: " + lines[i].x1 + " "
+//					+ lines[i].y1 + ", " + lines[i].x2 + " " + lines[i].y2);
 
 			Point p = intersectsAt(lines[i], l);
 
 			if (p == null) {
 				// Does not intersect
-				System.out.println("does not intersect");
+//				System.out.println("does not intersect");
 				continue;
 			}
 
 			Line tl = new Line(pose.getX(), pose.getY(), p.x, p.y);
 
-			System.out.println("does intersect: " + tl.length());
+//			System.out.println("does intersect: " + tl.length());
 
 			// If the range line intersects more than one map line
 			// then take the shortest distance.
@@ -186,6 +186,13 @@ public class GridMap extends LineMap {
 	 * @return
 	 */
 	public boolean isValidTransition(int _x1, int _y1, int _x2, int _y2) {
+		
+
+		
+		if (!isValidGridPoint(_x1, _y1) || !isValidGridPoint(_x2, _y2)) {
+			return false;
+		}
+
 		if (isObstructed(_x1, _y1) || isObstructed(_x2, _y2)) {
 			return false;
 		}
