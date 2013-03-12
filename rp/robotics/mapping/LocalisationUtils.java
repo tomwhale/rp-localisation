@@ -37,6 +37,34 @@ public class LocalisationUtils {
 		return map;
 	}
 
+	
+	public static GridMap createRectangularGridMap(int _xJunctions,
+			int _yJunctions, float _pointSeparation) {
+
+	
+		int xInset = (int) (_pointSeparation / 2);
+		int yInset = (int) (_pointSeparation / 2);
+
+		float _width = _xJunctions * _pointSeparation;
+		float _height = _yJunctions * _pointSeparation;
+
+		ArrayList<Line> lines = new ArrayList<Line>();
+
+		// these are the walls for the world outline
+		lines.add(new Line(0f, 0f, _width, 0f));
+		lines.add(new Line(_width, 0f, _width, _height));
+		lines.add(new Line(_width, _height, 0f, _height));
+		lines.add(new Line(0f, _height, 0f, 0f));
+
+		Line[] lineArray = new Line[lines.size()];
+		lines.toArray(lineArray);
+
+		return new GridMap(_xJunctions, _yJunctions, xInset, yInset,
+				_pointSeparation, lineArray, new Rectangle(0, 0, _width,
+						_height));
+
+	}
+
 	/**
 	 * Turns a straight line into a box with 4 walls around the line at the
 	 * given width
