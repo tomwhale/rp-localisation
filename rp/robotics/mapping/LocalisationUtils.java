@@ -142,9 +142,9 @@ public class LocalisationUtils {
 		lines.addAll(lineToBox(194f, 191f, 254f, 191f));
 		lines.addAll(lineToBox(194f, 191f, 194f, height));
 
-		lines.add(new Line(width - 42f, 99f, width, 99f));
-		lines.add(new Line(width - 42f, 159f, width, 159f));
-		lines.add(new Line(width - 42f, 99f, width - 42f, 159f));
+		lines.add(new Line(width - 21f, 99f, width, 99f));
+		lines.add(new Line(width - 21f, 159f, width, 159f));
+		lines.add(new Line(width - 21f, 99f, width - 21f, 159f));
 		Line[] lineArray = new Line[lines.size()];
 		lines.toArray(lineArray);
 
