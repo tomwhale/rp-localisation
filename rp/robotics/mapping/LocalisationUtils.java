@@ -109,7 +109,7 @@ public class LocalisationUtils {
 		float width = 366;
 
 		// junction numbers
-		int xJunctions = 12;
+		int xJunctions = 11;
 		int yJunctions = 7;
 
 		// position of 0,0 junction wrt to top left of map
